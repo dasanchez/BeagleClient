@@ -24,8 +24,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        beagleclient.cpp
+        beagleclient.cpp \
+    aspectratiopixmaplabel.cpp
 
-HEADERS  += beagleclient.h
+HEADERS  += beagleclient.h \
+    aspectratiopixmaplabel.h
 
 FORMS    += beagleclient.ui

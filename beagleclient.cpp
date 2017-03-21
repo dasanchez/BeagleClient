@@ -85,9 +85,12 @@ void BeagleClient::camSocketDataAvailable()
             //            qDebug() << jpegArray;
             QPixmap pmap;
             pmap.loadFromData(jpegArray);
-            pmap = pmap.scaled(ui->imageLabel->size(),Qt::KeepAspectRatio);
-//            qDebug() << ui->imageLabel->size();
+
             ui->imageLabel->setPixmap(pmap);
+
+//            pmap = pmap.scaled(ui->imageLabel->size(),Qt::KeepAspectRatio);
+//            qDebug() << ui->imageLabel->size();
+//            ui->imageLabel->setPixmap(pmap);
 
             //            ui->imageLabel->setPixmap();
         }
@@ -169,22 +172,22 @@ void BeagleClient::on_connectWebcamButton_clicked()
     }
 }
 
-void BeagleClient::resizeEvent(QResizeEvent *ev)
-{
-    if(imageReceived)
-    {
-        resizeImage();
-    }
-    QWidget::resizeEvent(ev);
-}
+//void BeagleClient::resizeEvent(QResizeEvent *ev)
+//{
+//    if(imageReceived)
+//    {
+//        resizeImage();
+//    }
+//    QWidget::resizeEvent(ev);
+//}
 
-void BeagleClient::resizeImage()
-{
-    if(imageReceived)
-    {
-        const QPixmap *p = ui->imageLabel->pixmap();
-        int w = ui->imageLabel->width();
-        int h = ui->imageLabel->height();
-        ui->imageLabel->setPixmap(p->scaled(w,h,Qt::KeepAspectRatio));
-    }
-}
+//void BeagleClient::resizeImage()
+//{
+//    if(imageReceived)
+//    {
+//        const QPixmap *p = ui->imageLabel->pixmap();
+//        int w = ui->imageLabel->width();
+//        int h = ui->imageLabel->height();
+//        ui->imageLabel->setPixmap(p->scaled(w,h,Qt::KeepAspectRatio));
+//    }
+//}

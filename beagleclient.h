@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QTcpSocket>
 #include <QRegExp>
+#include <aspectratiopixmaplabel.h>
 
 //#include <QWebEngineView>
 
@@ -16,7 +17,7 @@ class BeagleClient : public QWidget
     Q_OBJECT
 
 protected:
-    void resizeEvent(QResizeEvent* ev) Q_DECL_OVERRIDE;
+//    void resizeEvent(QResizeEvent* ev) Q_DECL_OVERRIDE;
 
 public:
     explicit BeagleClient(QWidget *parent = 0);
@@ -27,6 +28,7 @@ public:
     QRegExp jpegStartRegex;
     QRegExp jpegEndRegex;
     QByteArray jpegArray;
+    AspectRatioPixmapLabel arpLabel;
     bool imageStarted;
     bool imageReceived;
     //    QWebView *webView;
@@ -47,7 +49,7 @@ private slots:
 
 private:
     Ui::BeagleClient *ui;
-    void resizeImage();
+//    void resizeImage();
 };
 
 #endif // BeagleClient_H
