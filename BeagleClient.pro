@@ -31,3 +31,12 @@ HEADERS  += beagleclient.h \
     aspectratiopixmaplabel.h
 
 FORMS    += beagleclient.ui
+
+LIBS += -lSDL2 \
+        -lSDL2main
+
+#win32 {
+#    DEFINES -= QT_NEEDS_QMAIN
+#    DEFINES += SDL_MAIN_HANDLED
+#}
+

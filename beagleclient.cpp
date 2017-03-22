@@ -12,6 +12,7 @@ BeagleClient::BeagleClient(QWidget *parent) :
     imageStarted = false;
     imageReceived = false;
     battRegex.setPattern(QString("V(\\d+)\\*I(\\d+)\\*S(\\d+.?\\d*)\\*"));
+
     connect(battSocket,SIGNAL(readyRead()),this,SLOT(battSocketDataAvailable()));
     connect(camSocket,SIGNAL(readyRead()),this,SLOT(camSocketDataAvailable()));
 
