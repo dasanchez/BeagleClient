@@ -1,16 +1,11 @@
 #ifndef BeagleClient_H
 #define BeagleClient_H
 
-#define SDL_MAIN_HANDLED
 #include <QWidget>
 #include <QTcpSocket>
 #include <QRegExp>
 #include <aspectratiopixmaplabel.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_main.h>
-//#include <SDL2/SDL_joystick.h>
-
-//#include <QWebEngineView>
+#include <QGamepad>
 
 namespace Ui {
 class BeagleClient;
@@ -21,7 +16,6 @@ class BeagleClient : public QWidget
     Q_OBJECT
 
 protected:
-//    void resizeEvent(QResizeEvent* ev) Q_DECL_OVERRIDE;
 
 public:
     explicit BeagleClient(QWidget *parent = 0);
@@ -33,9 +27,10 @@ public:
     QRegExp jpegEndRegex;
     QByteArray jpegArray;
     AspectRatioPixmapLabel arpLabel;
+    QGamepad *gamePad;
     bool imageStarted;
     bool imageReceived;
-    //    QWebView *webView;
+    void setupGamepadMonitor();
 
 private slots:
 
@@ -50,10 +45,11 @@ private slots:
 
     void on_connectWebcamButton_clicked();
     void on_connectBatteryButton_clicked();
+    void gamepadButtonPressed(int deviceId, QGamepadManager::GamepadButton button, double value);
+    void gamepadAxisMoved(int deviceId, QGamepadManager::GamepadAxis axis, double value);
 
 private:
     Ui::BeagleClient *ui;
-//    void resizeImage();
 };
 
 #endif // BeagleClient_H

@@ -4,13 +4,13 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network
+QT       += core gui network gamepad
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = BeagleClient
 TEMPLATE = app
-
+CONFIG += c++11
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -25,18 +25,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         beagleclient.cpp \
-    aspectratiopixmaplabel.cpp
+        aspectratiopixmaplabel.cpp
 
 HEADERS  += beagleclient.h \
-    aspectratiopixmaplabel.h
+            aspectratiopixmaplabel.h
 
 FORMS    += beagleclient.ui
 
-LIBS += -lSDL2 \
-        -lSDL2main
-
-#win32 {
-#    DEFINES -= QT_NEEDS_QMAIN
-#    DEFINES += SDL_MAIN_HANDLED
-#}
 
